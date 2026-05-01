@@ -71,3 +71,17 @@ contract DynamicNFT {
 
         emit LeveledUp(tokenId, newLevel);
     }
+
+
+
+    function getNFT(uint256 _id) public view returns (
+        uint256,
+        address,
+        uint256,
+        uint256,
+        uint256
+    ) {
+        NFT memory n = nfts[_id];
+        return (n.id, n.owner, n.level, n.mintedAt, n.totalTips);
+    }
+}
