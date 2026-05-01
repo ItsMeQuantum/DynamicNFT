@@ -8,3 +8,13 @@ Each wallet can mint one NFT that grows based on **time held** and **tips receiv
 
 ---
 
+## Concept
+
+This contract creates a basic "progressive NFT":
+
+* Starts at level 1
+* Levels increase over time
+* Extra levels come from tips
+
+---
+
