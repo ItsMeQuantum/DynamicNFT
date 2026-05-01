@@ -18,3 +18,56 @@ contract DynamicNFT {
 
     event Minted(uint256 tokenId, address owner);
     event LeveledUp(uint256 tokenId, uint256 newLevel);
+
+
+
+    
+    function mint() public {
+        require(ownerToToken[msg.sender] == 0, "Already owns NFT");
+
+        tokenCount++;
+
+        nfts[tokenCount] = NFT({
+            id: tokenCount,
+            owner: msg.sender,
+            level: 1,
+            mintedAt: block.timestamp,
+            totalTips: 0
+        });
+
+        ownerToToken[msg.sender] = tokenCount;
+
+        emit Minted(tokenCount, msg.sender);
+    }
+
+    
+    function addTip(address user, uint256 amount) public {
+        uint256 tokenId = ownerToToken[user];
+        require(tokenId != 0, "No NFT");
+
+        nfts[tokenId].totalTips += amount;
+    }
+
+    
+    function levelUp() public {
+        uint256 tokenId = ownerToToken[msg.sender];
+        require(tokenId != 0, "No NFT");
+
+        NFT storage nft = nfts[tokenId];
+
+        uint256 timeHeld = block.timestamp - nft.mintedAt;
+
+        
+        uint256 newLevel = 1;
+
+        if (timeHeld > 1 days) newLevel++;
+        if (timeHeld > 7 days) newLevel++;
+        if (nft.totalTips > 1 ether) newLevel++;
+        if (nft.totalTips > 5 ether) newLevel++;
+
+        require(newLevel > nft.level, "No upgrade yet");
+
+        nft.level = newLevel;
+
+        emit LeveledUp(tokenId, newLevel);
+    }
