@@ -35,3 +35,36 @@ This contract creates a basic "progressive NFT":
 * Anyone can add tips to a user’s NFT
 * Tips are just numbers (no real ETH transfer)
 
+### Level Up
+
+Level increases if conditions are met:
+
+* Held > 1 day → +1
+* Held > 7 days → +1
+* Tips > 1 ether → +1
+* Tips > 5 ether → +1
+
+Max level: **5**
+
+---
+
+## Key Functions
+
+```solidity
+mint()
+```
+
+```solidity
+addTip(address user, uint256 amount)
+```
+
+```solidity
+levelUp()
+```
+
+```solidity
+getNFT(uint256 id)
+```
+
+---
+
