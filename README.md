@@ -68,3 +68,63 @@ getNFT(uint256 id)
 
 ---
 
+
+## Structure
+
+```solidity
+struct NFT {
+    uint256 id;
+    address owner;
+    uint256 level;
+    uint256 mintedAt;
+    uint256 totalTips;
+}
+```
+
+---
+
+## Notes
+
+* Not ERC721 compatible
+* No transfer logic
+* Tips are simulated values
+* Built only for learning/testing
+
+---
+
+## Structure
+
+```solidity
+struct NFT {
+    uint256 id;
+    address owner;
+    uint256 level;
+    uint256 mintedAt;
+    uint256 totalTips;
+}
+```
+
+---
+
+## Notes
+
+* Not ERC721 compatible
+* No transfer logic
+* Tips are simulated values
+* Built only for learning/testing
+
+---
+
+## Possible Extensions
+
+* ERC721 integration
+* Real ETH tipping
+* Dynamic metadata
+* Transfer support
+
+---
+
+## Author
+
+Quantum
+
