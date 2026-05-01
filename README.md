@@ -18,3 +18,20 @@ This contract creates a basic "progressive NFT":
 
 ---
 
+## How it works
+
+### Mint
+
+* One NFT per address
+* Stores:
+
+  * owner
+  * level
+  * mint timestamp
+  * total tips
+
+### Tip
+
+* Anyone can add tips to a user’s NFT
+* Tips are just numbers (no real ETH transfer)
+
